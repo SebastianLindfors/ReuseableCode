@@ -97,6 +97,13 @@ public class Die {
         dieName = newName;
 
     }
+    public void setCurrentFace(int newFace) {
+
+        if (newFace < 1 || newFace > sides) {
+            throw (new IllegalArgumentException("Can only set this die to side 1-" + sides));
+        }
+        currentFace = newFace;
+    }
 
 
 }
