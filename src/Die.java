@@ -1,3 +1,4 @@
+import java.util.ArrayList
  /**
  *  Class Represents a Fair N-sided die (sides CANNOT be negative or zero).
  *
@@ -20,9 +21,12 @@ public class Die {
 
     private int sides;
     private int currentFace;
+    private int timesRolled = 0;
 
     private String dieName;
     private String[] sideOptions;
+
+    private ArrayList<Integer> rollHistory = new ArrayList<>();
 
     // ---- Constructors ---- //
 
@@ -39,6 +43,7 @@ public class Die {
         for (int i = 0; i < sides; i++) {
             sideOptions[i] = "" + (i + 1);
         }
+
     }
 
     public Die (int numberOfSides, String name) {
@@ -54,6 +59,7 @@ public class Die {
         for (int i = 0; i < sides; i++) {
             sideOptions[i] = "" + (i + 1);
         }
+
     }
 
     public Die(String[] sideText) {
@@ -83,11 +89,16 @@ public class Die {
     public void roll() {
 
         currentFace = (int) (1 + Math.random()*sides);
+        timesRolled++;
+        rollHistory.add(currentFace);
 
     } //Sets the currentFace variable to a random face.
 
     private int getSides() {return sides;}
     private int getCurrentFace() {return currentFace;} //Use this to read a normal die
+    private int getTimesRolled() {return timesRolled;}
+
+    private ArrayList<Integer> getRollHistory() { return rollHistory};
 
     public String getDieName() { return dieName;}
     public String getCurrentFaceString() { return sideOptions[currentFace]; } //Use this to read a special die
