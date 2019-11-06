@@ -94,9 +94,9 @@ public class Die {
 
     } //Sets the currentFace variable to a random face.
 
-    private int getSides() {return sides;}
-    private int getCurrentFace() {return currentFace;} //Use this to read a normal die
-    private int getTimesRolled() {return timesRolled;}
+    public int getSides() {return sides;}
+    public int getCurrentFace() {return currentFace;} //Use this to read a normal die
+    public int getTimesRolled() {return timesRolled;}
 
     private ArrayList<Integer> getRollHistory() { return rollHistory};
 
